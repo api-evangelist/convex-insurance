@@ -1,0 +1,47 @@
+# Convex
+
+> Convex Group Limited is an international specialty insurer and reinsurer founded in 2019 by Stephen Catlin and Paul Brand, headquartered in London with operations in Bermuda, Luxembourg, Guernsey and the United States. Convex writes complex commercial and specialty risk — property, casualty, marine, energy, aviation, cyber, political risk and credit, crisis management, accident and health, and equine/livestock/aquaculture — and writes property, casualty and specialty treaty reinsurance through Convex Re Limited. Convex Insurance UK Limited is authorised by the Prudential Regulation Authority and regulated by the FCA and PRA; it is a London company-market carrier rather than a Lloyd's syndicate, and reported roughly $5.2bn of gross written premium in 2024.
+
+Convex runs a named Digital Underwriting function that publicly describes building "a suite of insurance specific APIs" for automated quote and bind on high-volume, low-complexity specialty books, delivered either through a Convex-hosted broker portal or by connecting Convex products into a broker's or client's existing portal via API.
+
+That API programme is real but entirely partner-gated. As of 2026-07-25 Convex publishes no developer portal, no API reference, no OpenAPI/AsyncAPI/GraphQL definition, no SDK, no CLI, no sandbox, no changelog and no self-serve signup. The api.convexin.com host is live and answers every anonymous request — including every OpenAPI, GraphQL and /.well-known path — with HTTP 401 `{"message":"Unauthorized","http_status_code":401}`. Integration is arranged commercially through the Convex Digital Trading / Business Development team, not through documentation.
+
+## APIs
+
+- [Convex Digital Underwriting API](https://convexin.com/underwriting/digital-underwriting/): Partner-gated REST surface at https://api.convexin.com for automated quote and bind on specialty business. Undocumented; credentials issued per partner during onboarding.
+
+## Docs
+
+- [Digital Underwriting](https://convexin.com/underwriting/digital-underwriting/): The most substantive public statement about Convex APIs — names APIs as an integration route into broker and client portals.
+- [Digital Underwriting one-pager (PDF)](https://convexin.com/wp-content/uploads/2025/10/Convex-Digital-Underwriting-One-Pager-1025.pdf): "Portals with end-to-end processing, referrals and API enrichments"; "Working with a market leading team in insurance specific API's"; named Digital Trading contacts.
+- [Convex Quick Quote](https://convexin.com/underwriting/quick-quote/): Event-insurance quote-and-bind product for brokers. Access is by broker account registration, not by API.
+- [Convex Digital Underwriting application](https://digital.convexin.com/): Authenticated Unqork-hosted broker application. Not a developer portal.
+
+## Company
+
+- [Convex](https://convexin.com/)
+- [Convex US](https://us.convexin.com/)
+- [About Us](https://convexin.com/about-us/)
+- [Insurance products](https://convexin.com/insurance/)
+- [Reinsurance products](https://convexin.com/reinsurance/)
+- [Delegated authorities](https://convexin.com/delegated-authorities/)
+- [Claims](https://convexin.com/claims/): Contact-driven; notification is by email/phone, not by API.
+- [Articles](https://convexin.com/articles/) ([RSS](https://convexin.com/feed/))
+- [The Convex Conversation podcast](https://convexin.com/podcasts/)
+- [Investor relations](https://convexin.com/investor-relations/)
+- [Contact](https://convexin.com/contact-us/)
+- [Legal and regulatory](https://convexin.com/legal/)
+- [Terms and conditions](https://convexin.com/terms-and-conditions/)
+- [Privacy policy](https://convexin.com/privacy-policy/)
+
+## API Evangelist artifacts
+
+- [apis.yml](https://raw.githubusercontent.com/api-evangelist/convex-insurance/refs/heads/main/apis.yml): APIs.json index for Convex.
+- [review.yml](https://raw.githubusercontent.com/api-evangelist/convex-insurance/refs/heads/main/review.yml): Full public-surface review, including every probed URL and its HTTP status.
+- [conformance/convex-insurance-conformance.yml](https://raw.githubusercontent.com/api-evangelist/convex-insurance/refs/heads/main/conformance/convex-insurance-conformance.yml): Standards posture — no ACORD, Blueprint Two, OAuth, OIDC or RFC 9457 claim published.
+- [security/convex-insurance-domain-security.yml](https://raw.githubusercontent.com/api-evangelist/convex-insurance/refs/heads/main/security/convex-insurance-domain-security.yml): Probed TLS/HSTS/DNSSEC/CAA/SPF/DMARC posture.
+- [well-known/convex-insurance-well-known.yml](https://raw.githubusercontent.com/api-evangelist/convex-insurance/refs/heads/main/well-known/convex-insurance-well-known.yml): Full /.well-known/ probe matrix — no discovery document published on any host.
+
+## Not published
+
+Convex publishes none of the following, so no artifact exists in this repo: OpenAPI or Swagger definitions, AsyncAPI or webhook catalogs, GraphQL schemas, gRPC/protobuf, Postman collections, SDKs or client packages, a CLI, embeddable components, OAuth scopes, a documented authentication model, an error or decline-code reference, a sandbox or test credentials, a changelog or versioning policy, a status page, a deprecation policy, a security.txt or vulnerability-disclosure programme, a trust center, or an MCP server.

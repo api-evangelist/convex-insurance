@@ -41,8 +41,46 @@ tags:
 created: '2026-07-25'
 modified: '2026-07-25'
 specificationVersion: '0.19'
-apis: []
+apis:
+- name: Convex Digital Underwriting API
+  description: >-
+    The partner-gated REST API surface behind Convex Digital Underwriting. Convex
+    publicly describes building "a suite of insurance specific APIs" that let broker
+    and client platforms connect to Convex products for automated quote and bind on
+    high-volume, low-complexity specialty business, either through a Convex-hosted
+    portal or by wiring Convex products into an existing broker or client portal via
+    API. The api.convexin.com host is confirmed live but answers every anonymous
+    request with an application/json HTTP 401 {"message":"Unauthorized"} body — including
+    every OpenAPI/Swagger, /graphql and /.well-known discovery path — with no
+    WWW-Authenticate challenge, so the auth scheme, paths, versioning and payload shapes
+    are not observable from outside. There is no developer portal, no API reference, no
+    machine-readable definition, no sandbox and no self-serve signup; access is arranged
+    commercially through the Convex Digital Trading / Business Development team.
+  humanURL: https://convexin.com/underwriting/digital-underwriting/
+  baseURL: https://api.convexin.com
+  tags:
+  - Insurance
+  - Underwriting
+  - Quote
+  - Bind
+  - Specialty Insurance
+  - Digital Underwriting
+  properties:
+  - type: Documentation
+    url: https://convexin.com/underwriting/digital-underwriting/
+  - type: Documentation
+    url: https://convexin.com/wp-content/uploads/2025/10/Convex-Digital-Underwriting-One-Pager-1025.pdf
+  - type: Portal
+    url: https://digital.convexin.com/
+  - type: Conformance
+    url: conformance/convex-insurance-conformance.yml
 common:
+- type: DomainSecurity
+  url: security/convex-insurance-domain-security.yml
+- type: Conformance
+  url: conformance/convex-insurance-conformance.yml
+- type: LLMsTxt
+  url: llms/convex-insurance-llms.txt
 - type: Website
   url: https://convexin.com/
 - type: Documentation
@@ -57,6 +95,22 @@ common:
   url: https://www.linkedin.com/company/convex-insurance
 - type: Contact
   url: https://convexin.com/contact-us/
+- type: Blog
+  url: https://convexin.com/articles/
+- type: BlogRSS
+  url: https://convexin.com/feed/
+- type: Podcast
+  url: https://convexin.com/podcasts/
+- type: TermsOfService
+  url: https://convexin.com/terms-and-conditions/
+- type: PrivacyPolicy
+  url: https://convexin.com/privacy-policy/
+- type: Legal
+  url: https://convexin.com/legal/
+- type: InvestorRelations
+  url: https://convexin.com/investor-relations/
+- type: Careers
+  url: https://convexin.com/life-at-convex/careers/
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com

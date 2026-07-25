@@ -1,0 +1,55 @@
+generated: '2026-07-25'
+method: searched
+source: live probes of every Convex host in apis.yml, 2026-07-25
+summary: >-
+  No /.well-known/ discovery document of any kind is published by Convex. The
+  corporate WordPress site (convexin.com), the US MGU site (us.convexin.com) and the
+  Unqork-hosted broker application (digital.convexin.com) all return 404 for every
+  probed path. The partner API gateway (api.convexin.com) returns the same blanket
+  application/json HTTP 401 {"message":"Unauthorized","http_status_code":401} for every
+  path including the anonymous OAuth/OIDC metadata endpoints, so even the discovery
+  layer that RFC 8414 and OIDC expect to be unauthenticated is gated. Absence is the
+  finding; no document was harvested, so no WellKnown or SecurityTxt pointer is wired.
+documents: []
+probes:
+- host: https://convexin.com
+  results:
+  - {path: /.well-known/security.txt, status: 404}
+  - {path: /.well-known/openid-configuration, status: 404}
+  - {path: /.well-known/oauth-authorization-server, status: 404}
+  - {path: /.well-known/oauth-protected-resource, status: 404}
+  - {path: /.well-known/api-catalog, status: 404}
+  - {path: /.well-known/ai-plugin.json, status: 404}
+  - {path: /llms.txt, status: 404}
+  - {path: /security.txt, status: 404}
+- host: https://api.convexin.com
+  note: >-
+    Live partner API gateway. Every path returns HTTP 401 with an
+    application/json body and no WWW-Authenticate challenge header.
+  results:
+  - {path: /.well-known/security.txt, status: 401}
+  - {path: /.well-known/openid-configuration, status: 401}
+  - {path: /.well-known/oauth-authorization-server, status: 401}
+  - {path: /.well-known/oauth-protected-resource, status: 401}
+  - {path: /.well-known/api-catalog, status: 401}
+  - {path: /.well-known/ai-plugin.json, status: 401}
+  - {path: /llms.txt, status: 401}
+- host: https://digital.convexin.com
+  note: Unqork-hosted Convex Digital Underwriting broker application; returns a "Route not found" shell.
+  results:
+  - {path: /.well-known/security.txt, status: 404}
+  - {path: /.well-known/openid-configuration, status: 404}
+  - {path: /.well-known/oauth-authorization-server, status: 404}
+  - {path: /.well-known/oauth-protected-resource, status: 404}
+  - {path: /.well-known/api-catalog, status: 404}
+  - {path: /.well-known/ai-plugin.json, status: 404}
+  - {path: /llms.txt, status: 404}
+- host: https://us.convexin.com
+  results:
+  - {path: /.well-known/security.txt, status: 404}
+  - {path: /.well-known/openid-configuration, status: 404}
+  - {path: /.well-known/oauth-authorization-server, status: 404}
+  - {path: /.well-known/oauth-protected-resource, status: 404}
+  - {path: /.well-known/api-catalog, status: 404}
+  - {path: /.well-known/ai-plugin.json, status: 404}
+  - {path: /llms.txt, status: 404}

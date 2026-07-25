@@ -1,0 +1,73 @@
+generated: '2026-07-25'
+method: searched
+source: >-
+  Convex public web presence (convexin.com, us.convexin.com, digital.convexin.com,
+  api.convexin.com) searched 2026-07-25 for standards and compliance claims. No
+  OpenAPI or other machine-readable definition exists in this repo, so nothing here is
+  derived from a spec — every entry is a published-claim search result.
+summary: >-
+  Convex publishes no conformance or certification claim of any kind. As a London
+  company-market specialty carrier it is prudentially regulated (PRA-authorised,
+  FCA/PRA-regulated) and almost certainly exchanges ACORD-standard messaging through
+  market placing platforms and broker connectivity, but none of that is stated publicly,
+  so it is recorded as "not published" rather than as conformance. The API surface is
+  entirely partner-gated, so no security-scheme, error-format or pagination convention
+  is observable. No Compliance pointer is wired because no certification or compliance
+  programme page is published.
+standards:
+- id: acord
+  conforms: false
+  evidence: >-
+    Case-insensitive search for ACORD, AL3, ACORD XML, ACORD ADEPT, EBOT/ECOT, NGDS,
+    IVANS, Vertafore and Applied Epic returned zero hits across the convexin.com and
+    us.convexin.com sitemapped pages and the Digital Underwriting one-pager PDF. No
+    ACORD certification or Data Standards claim is published.
+- id: lloyds-blueprint-two
+  conforms: false
+  evidence: >-
+    No Blueprint Two, Core Data Record, PPL, Whitespace, PlacingHub or Ki commitment
+    appears on any Convex page. Convex is a company-market carrier, not a Lloyd's
+    syndicate.
+- id: oauth2
+  conforms: false
+  evidence: >-
+    api.convexin.com returns HTTP 401 with no WWW-Authenticate challenge;
+    /.well-known/oauth-authorization-server and /.well-known/oauth-protected-resource
+    both 401. No OAuth flow is documented anywhere.
+- id: openid-connect
+  conforms: false
+  evidence: /.well-known/openid-configuration returns 401 on api.convexin.com and 404 on every other Convex host.
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: >-
+    The only observable error payload is application/json
+    {"message":"Unauthorized","http_status_code":401} — a bespoke envelope, not
+    application/problem+json.
+- id: rfc9116-security-txt
+  conforms: false
+  evidence: /.well-known/security.txt returns 404 on convexin.com, us.convexin.com and digital.convexin.com, and 401 on api.convexin.com.
+- id: openapi
+  conforms: false
+  evidence: >-
+    No OpenAPI/Swagger document at /openapi.json, /openapi.yaml, /swagger.json,
+    /v1/openapi.json, /api-docs, /docs, /redoc or /spec on any Convex host; all 401 on
+    api.convexin.com and 404 elsewhere.
+- id: asyncapi
+  conforms: false
+  evidence: No event catalog, webhook documentation or AsyncAPI document is published.
+- id: graphql
+  conforms: false
+  evidence: /graphql returns 401 on api.convexin.com and 404 on digital.convexin.com; no GraphQL surface is advertised.
+regulatory:
+- regime: PRA authorisation (UK)
+  entity: Convex Insurance UK Limited
+  published: true
+  evidence: Regulatory disclosure on convexin.com/legal/ — authorised by the Prudential Regulation Authority and regulated by the Financial Conduct Authority and the Prudential Regulation Authority.
+  note: Prudential/conduct regulation of the carrier, not an API or data-exchange standard.
+- regime: UK open finance
+  published: false
+  evidence: >-
+    The UK has no open-insurance obligation; the FCA's Open Finance work remains
+    consultation rather than rule, so there is no mandated API surface for a UK
+    specialty carrier.
+certifications: []
