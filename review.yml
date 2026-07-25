@@ -1,0 +1,214 @@
+aid: convex-insurance
+name: Convex
+review:
+  question: Does Convex expose a public, self-serve developer portal or downloadable API definitions?
+  answer: false
+  date: '2026-07-25'
+  reviewer: API Evangelist
+  homeMarket: United Kingdom
+  tier: carrier-pc
+findings:
+  summary: |
+    Convex Group Limited is a London-headquartered international specialty insurer
+    and reinsurer (founded 2019, Catlin/Brand) writing property, casualty, marine,
+    energy, specialty and treaty reinsurance from London, Bermuda, Luxembourg,
+    Guernsey and the US. Convex Insurance UK Limited is PRA-authorised and
+    FCA/PRA-regulated; it is a company-market carrier, not a Lloyd's syndicate.
+
+    Convex genuinely has an API programme. Its public Digital Underwriting page
+    states that its capabilities "enable our partners to access our products
+    through a Convex portal or alternatively, connect them seamlessly into
+    existing broker & client portals via API's", and the downloadable Digital
+    Underwriting one-pager promises "Portals with end-to-end processing,
+    referrals and API enrichments", "Working with a market leading team in
+    insurance specific API's", and "Following one integration, the ability to
+    add new products within appetite quickly". The stated objective is auto
+    quote and bind on "high volume, low complexity" specialty business with
+    real-time pricing.
+
+    None of that surface is public. There is no developer portal, no API
+    reference, no OpenAPI/Swagger/AsyncAPI/GraphQL definition, no sandbox, no
+    published auth documentation, no SDK, no changelog and no self-serve signup.
+    Integration is arranged commercially through the Digital Trading / Business
+    Development team (named contacts published on the one-pager) rather than
+    through documentation. This is the classic carrier posture: a real
+    partner-integration capability that is invisible from outside the
+    partnership.
+  developerPortal:
+    exists: false
+    url: ''
+    classification: none
+    note: |
+      No developer portal exists in any form. The full Yoast sitemap index
+      (page-sitemap.xml, 40 URLs; underwriting-sitemap.xml, 39 URLs) contains no
+      developer, API, docs or integration page. The only public prose about APIs
+      lives on a marketing page under /underwriting/digital-underwriting/.
+  probes:
+  - url: https://convexin.com/
+    status: 200
+    note: Corporate marketing site (WordPress). Nav is About Us / Locations / Products / Careers / Podcasts. No developer or API section.
+  - url: https://developer.convexin.com/
+    status: 0
+    note: DNS does not resolve.
+  - url: https://developers.convexin.com/
+    status: 0
+    note: DNS does not resolve.
+  - url: https://docs.convexin.com/
+    status: 0
+    note: DNS does not resolve.
+  - url: https://api.convexin.com/
+    status: 401
+    note: >-
+      Live API host. Returns application/json {"message":"Unauthorized","http_status_code":401}
+      to every anonymous request, including /openapi.json, /openapi.yaml, /swagger.json,
+      /v1/openapi.json, /api-docs, /swagger/v1/swagger.json, /spec, /graphql,
+      /.well-known/openid-configuration and /.well-known/oauth-authorization-server
+      (all 401). No unauthenticated discovery surface of any kind. Confirms a real
+      partner API gateway exists behind credentials.
+  - url: https://digital.convexin.com/
+    status: 200
+    note: >-
+      "Convex Digital Underwriting" broker application, served as an Unqork no-code
+      app (REMOTE_ROOT https://exp.unqork.io/convex/, APP_VERSION 8.2.7.0, Datadog RUM,
+      Cloudflare, x-ratelimit-limit 1000). Authenticated broker/partner portal, not a
+      developer portal. /openapi.json, /openapi.yaml, /swagger.json, /api-docs,
+      /v1/openapi.json, /spec, /redoc, /graphql, /.well-known/openid-configuration all 404.
+  - url: https://convexin.com/developers
+    status: 404
+  - url: https://convexin.com/api
+    status: 404
+  - url: https://convexin.com/developer
+    status: 404
+  - url: https://convexin.com/integrations
+    status: 404
+  - url: https://convexin.com/partners
+    status: 200
+    note: Redirects to https://convexin.com/about-us/partnerships/ — corporate/sponsorship partnerships, no technical integration content.
+  - url: https://convexin.com/underwriting/digital-underwriting/
+    status: 200
+    note: >-
+      The single most substantive public API statement. Marketing page for the Digital
+      Underwriting team. Names APIs as an integration route into broker/client portals.
+      No links to documentation, no base URL, no auth detail, no portal login link.
+  - url: https://convexin.com/underwriting/quick-quote/
+    status: 200
+    note: >-
+      Convex Quick Quote — event insurance quote-and-bind product "Built for brokers,
+      with brokers". Access is via "Register your interest in creating a Quick Quote
+      account", i.e. a gated broker account request. UI product, not an API.
+  - url: https://convexin.com/wp-content/uploads/2025/10/Convex-Digital-Underwriting-One-Pager-1025.pdf
+    status: 200
+    note: Digital Underwriting one-pager PDF. Source of the verbatim API claims quoted above. Named contacts, Tina Stowe (Head of Digital Trading) and Ben French (Business Development US).
+  - url: https://us.convexin.com/
+    status: 200
+    note: Convex US (Convex North America Insurance Services LLC) MGU site. No developer surface.
+  - url: https://portal.convexin.com/
+    status: 0
+    note: DNS does not resolve.
+  - url: https://quote.convexin.com/
+    status: 0
+    note: DNS does not resolve.
+  - url: https://sandbox.convexin.com/
+    status: 0
+    note: DNS does not resolve.
+  - url: https://broker.convexin.com/
+    status: 0
+    note: DNS does not resolve.
+  acord:
+    posture: no ACORD reference found
+    evidence: |
+      Case-insensitive checks for ACORD, AL3, ACORD XML, NGDS, IVANS, Vertafore and
+      Applied Epic returned zero hits across convexin.com (home, /solutions/,
+      /about-us/partnerships/, /claims/, /underwriting/, /underwriting/digital-underwriting/,
+      /underwriting/quick-quote/, /about-us/approach/, /delegated-authorities/,
+      /underwriting/crisis-management-platform/) and us.convexin.com (home,
+      /department/digital-underwriting/), and across the Digital Underwriting one-pager PDF.
+      No ACORD certification, no ACORD Data Standards claim, no EBOT/ECOT statement, no
+      Lloyd's Blueprint Two / Core Data Record statement, and no named placing-platform
+      (PPL, Whitespace, PlacingHub, ADEPT) commitment appears anywhere on Convex's public
+      web presence. As a London company-market carrier Convex almost certainly touches
+      ACORD-standard messaging through market placing platforms and broker connectivity,
+      but nothing about that is published, so it cannot be recorded as fact.
+  insuranceVerbs:
+    quote:
+      exposed: false
+      note: Auto-quote is explicitly described as a capability of Convex Digital Underwriting, but only via partner-gated API integration or the Convex portal. No public endpoint or documentation.
+    bind:
+      exposed: false
+      note: Auto-bind described in the same marketing language. Same gating.
+    issue:
+      exposed: false
+      note: No public policy-issuance or policy-administration API.
+    fnol:
+      exposed: false
+      note: >-
+        No FNOL or claims API. https://convexin.com/claims/ is a contact-driven claims
+        page; notification is by email/phone to the claims team, not by API.
+    audience: partner-only
+    note: >-
+      Where an API exists it is aimed at broker platforms and distribution partners under
+      a commercial agreement. Nothing is consumer-facing or self-serve; nothing is
+      available to an unaffiliated developer.
+  authModel:
+    documented: false
+    observed: >-
+      Undocumented. api.convexin.com returns a bare JSON 401 with no WWW-Authenticate
+      challenge and no OAuth/OIDC discovery document (both /.well-known probes 401), so
+      the scheme cannot be determined from outside. digital.convexin.com is an
+      Unqork-hosted application with its own authenticated session. Credentials are
+      presumably issued per partner during onboarding.
+  transports:
+  - protocol: REST
+    scheme: https
+    baseURL: https://api.convexin.com
+    documented: false
+    note: Host confirmed live (HTTP 401 to all anonymous requests). Existence is observable; shape, versioning, paths and auth are not.
+  - protocol: GraphQL
+    documented: false
+    note: /graphql returns 401 on api.convexin.com and 404 on digital.convexin.com. No evidence of a GraphQL surface.
+  - protocol: gRPC
+    documented: false
+    note: No published .proto, no evidence of gRPC.
+  - protocol: WebSocket
+    documented: false
+    note: No documented WebSocket or realtime surface.
+  webhooks:
+    documented: false
+    asyncapi: false
+    note: No event catalog, no webhook documentation, no AsyncAPI. Absence is the finding.
+  machineReadable:
+    openapi: 0
+    asyncapi: 0
+    graphqlSdl: 0
+    proto: 0
+    postman: 0
+    note: >-
+      Nothing harvested. No OpenAPI/Swagger document was found at any probed path on any
+      Convex host. A Postman public search for "convex insurance" returned zero workspaces,
+      collections, APIs or specifications. No GitHub organisation exists at
+      github.com/convexin or github.com/convexinsurance (both 404), so there is no
+      spec-in-repo route either. The openapi/ directory is deliberately omitted from this
+      repo because no real specification exists to save.
+  gated: true
+  gatingNote: >-
+    The only integration surfaces are (1) api.convexin.com behind credentials, (2) the
+    digital.convexin.com Unqork broker application behind login, and (3) Convex Quick
+    Quote behind a broker account registration form. All three are partner/broker gated.
+  vendorContext: >-
+    Convex's integration layer was built with Boomi according to a published NeosAlpha
+    case study describing API-driven digitisation of the quote and bind process,
+    connecting placing portals, pricing and catastrophe models, and an underwriting tool
+    suite. The broker-facing digital underwriting application runs on Unqork. Neither
+    vendor relationship produces any externally documented API.
+  marketSeam: >-
+    The UK has FCA and PRA supervision but no open-insurance obligation; the FCA's Open
+    Finance work remains consultation, not rule. The only market-wide data and API
+    infrastructure effort is the London Market's Blueprint Two programme (PPL,
+    Whitespace, Ki, ACORD ADEPT), and it is aimed at brokers and syndicates rather than
+    developers. Convex is a good illustration of the resulting pattern: a modern,
+    API-first-sounding carrier whose real API work is entirely invisible from outside
+    the partnership, and which makes no public standards commitment at all.
+  verdict: >-
+    built-stub. Real carrier identity captured; a real but wholly partner-gated API
+    programme confirmed by a live 401 host and first-party marketing copy; zero public
+    developer portal, zero machine-readable definitions, zero ACORD posture published.
