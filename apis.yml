@@ -61,6 +61,13 @@ apis:
   tags:
   - Insurance
   - Underwriting
+  - Quotes
+  - Bind
+  - Specialty Insurance
+  - Digital Underwriting
+  tags_raw:
+  - Insurance
+  - Underwriting
   - Quote
   - Bind
   - Specialty Insurance
