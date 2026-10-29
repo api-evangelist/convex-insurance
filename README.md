@@ -64,68 +64,87 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Convex Group Limited is an international specialty insurer and reinsurer, founded in 2019 by
-Stephen Catlin and Paul Brand and headquartered in London, with operations in Bermuda,
-Luxembourg, Guernsey and the United States. Convex underwrites complex commercial and specialty
-risk — property, casualty, marine, energy, aviation, cyber, political risk and credit, crisis
-management, accident and health, and equine/livestock/aquaculture — and writes property, casualty
-and specialty treaty reinsurance through Convex Re Limited. Convex Insurance UK Limited is
-authorised by the Prudential Regulation Authority and regulated by the FCA and the PRA. It is a
-London company-market carrier rather than a Lloyd's syndicate, and reported roughly $5.2bn of
-gross written premium in 2024.
+Convex Group Limited is an international specialty insurer and reinsurer founded in 2019 by Stephen Catlin and Paul Brand, headquartered in London with operations in Bermuda, Luxembourg, Guernsey and the United States. Convex writes complex commercial and specialty risk across property, casualty, marine, energy, aviation, cyber, political risk and credit, crisis management, accident and health, and equine/livestock/aquaculture, and writes property, casualty and specialty treaty reinsurance through Convex Re Limited in Bermuda and London. Convex Insurance UK Limited is authorised by the Prudential Regulation Authority and regulated by the FCA and PRA; it is a London company-market carrier rather than a Lloyd's syndicate, and it reported roughly $5.2bn of gross written premium in 2024. Convex operates a named Digital Underwriting function that publicly describes building "a suite of insurance specific APIs" for automated quote and bind on high-volume, low-complexity specialty books, delivered either through a Convex-hosted broker portal or by connecting Convex products into a broker's or client's existing portal via API. That API programme is real but entirely partner-gated: as of 2026-07-25 Convex publishes no public developer portal, no API reference, no OpenAPI or other machine- readable definition, no sandbox and no self-serve signup. The api.convexin.com host is live but answers every anonymous request with HTTP 401 Unauthorized, the digital.convexin.com broker application is an authenticated Unqork-hosted portal, and the Convex Quick Quote event-insurance surface is behind a broker account registration form. Integration is arranged through the Business Development team, not through documentation. No ACORD, AL3, NGDS or IVANS reference appears anywhere on Convex's public web presence.
 
-## API posture
+**Areas:** Insurance · United Kingdom · Property and Casualty · Specialty Insurance · Reinsurance · Underwriting · Claims · London Market · Carrier · Digital Underwriting
 
-Convex has a real API programme and no public API.
+## Convex on APIs.io
 
-Its [Digital Underwriting](https://convexin.com/underwriting/digital-underwriting/) team publicly
-describes building "a suite of insurance specific API's" that auto quote, bind and portfolio-manage
-high-volume, low-complexity specialty business, delivered either through a Convex-hosted broker
-portal or by connecting Convex products "seamlessly into existing broker & client portals via
-API's". That capability is arranged commercially, through named business-development contacts,
-not through documentation.
+Everything profiled for Convex is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/convex-insurance/](https://apis.io/providers/convex-insurance/)** — or go straight to one of the APIs or properties below.
 
-As of 2026-07-25 there is:
+### APIs (1)
 
-- **No developer portal.** `developer.`, `developers.` and `docs.convexin.com` do not resolve;
-  `/developers`, `/developer`, `/api` and `/integrations` all return 404; the full site sitemap
-  (79 URLs) contains no developer or API page.
-- **No API reference and no machine-readable definitions.** No OpenAPI, Swagger, AsyncAPI,
-  GraphQL SDL, protobuf or Postman collection was found anywhere. No GitHub organisation exists.
-- **A live but closed API host.** `https://api.convexin.com` answers every anonymous request —
-  including every OpenAPI, Swagger and `.well-known` discovery path — with HTTP 401
-  `{"message":"Unauthorized","http_status_code":401}`. The gateway is real; its shape is not
-  observable from outside.
-- **Gated broker surfaces.** `https://digital.convexin.com` is the "Convex Digital Underwriting"
-  broker application, served as an Unqork-hosted app behind login. [Convex Quick
-  Quote](https://convexin.com/underwriting/quick-quote/), the event-insurance quote-and-bind
-  product, is reached by registering interest in a broker account.
-- **No ACORD posture published.** Case-insensitive checks for ACORD, AL3, ACORD XML, NGDS, IVANS,
-  Vertafore and Applied Epic across convexin.com, us.convexin.com and the Digital Underwriting
-  one-pager returned zero hits, as did checks for Blueprint Two, PPL, Whitespace and ADEPT.
-- **No webhooks or event catalog.**
+- [Convex Digital Underwriting API](https://apis.io/apis/convex-insurance/convex-digital-underwriting-api/) — The partner-gated REST API surface behind Convex Digital Underwriting. Convex publicly describes building "a suite of insurance specific APIs" that let…
 
-Of the four insurance API verbs, quote and bind are described as capabilities but exposed only to
-contracted partners; issue and FNOL have no API at all — claims are notified through the
-[claims contact page](https://convexin.com/claims/).
+### Published properties
 
-This is the honest carrier posture, and the point of recording it: the United Kingdom has FCA and
-PRA supervision but no open-insurance obligation, and the London Market's only market-wide data and
-API modernisation effort (Blueprint Two, PPL, Whitespace, Ki, ACORD ADEPT) is aimed at brokers and
-syndicates rather than developers. Convex's best API work is therefore invisible from the outside.
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## Links
+#### Security (1)
 
-- Website — https://convexin.com/
-- Digital Underwriting — https://convexin.com/underwriting/digital-underwriting/
-- Digital Underwriting one-pager (PDF) — https://convexin.com/wp-content/uploads/2025/10/Convex-Digital-Underwriting-One-Pager-1025.pdf
-- Convex Quick Quote — https://convexin.com/underwriting/quick-quote/
-- Convex US — https://us.convexin.com/
-- Contact — https://convexin.com/contact-us/
-- LinkedIn — https://www.linkedin.com/company/convex-insurance
+Authentication, trust centre, and vulnerability disclosure.
 
-## Files
+- [Convex Insurance Domain Security](https://apis.io/security/convex-insurance/convex-insurance-domain-security/)
 
-- [`apis.yml`](apis.yml) — APIs.json 0.19 company record for Convex.
-- [`review.yml`](review.yml) — API Evangelist review: probe-by-probe findings, ACORD posture,
-  quote/bind/issue/FNOL coverage, auth model and transports.
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://convexin.com/)
+- [Documentation](https://convexin.com/underwriting/digital-underwriting/)
+- [Blog](https://convexin.com/articles/)
+- [Terms of service](https://convexin.com/terms-and-conditions/)
+- [Privacy policy](https://convexin.com/privacy-policy/)
+
+## API Evangelist rating
+
+**Kin Score 15.8** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 0.0 |
+| Contract governance | 0.0 |
+| Operational transparency | 0.0 |
+| Developer ergonomics | 21.4 |
+| Access clarity | 21.1 |
+
+**Agent readiness 0.0** — human-only
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 16.7** — Insurance
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/convex-insurance/](https://apis.io/providers/convex-insurance/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Convex: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/convex-insurance/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
